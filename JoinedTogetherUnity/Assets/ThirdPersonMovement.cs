@@ -23,11 +23,11 @@ public class ThirdPersonMovement : MonoBehaviour
     Vector3 velocity;
     bool grounded;
 
-
+    public Animator animator;
 
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        this.animator = this.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -48,6 +48,11 @@ public class ThirdPersonMovement : MonoBehaviour
         if (grounded && velocity.y < 0)
         {
             velocity.y = -2f;
+            animator.SetBool("jumping", false);
+        }
+        else
+        {
+            animator.SetBool("jumping", true);
         }
 
         // v = root(h * -2 * grav)
@@ -85,6 +90,13 @@ public class ThirdPersonMovement : MonoBehaviour
                 * Vector3.forward;
 
             controller.Move(speed * Time.deltaTime * moveDirection.normalized);
+
+            animator.SetFloat("Speed", (speed * moveDirection.normalized).magnitude);
+
+        }
+        else
+        {
+            animator.SetFloat("Speed", 0);
         }
     }
 
