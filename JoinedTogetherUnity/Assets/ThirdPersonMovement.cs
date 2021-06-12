@@ -23,6 +23,13 @@ public class ThirdPersonMovement : MonoBehaviour
     Vector3 velocity;
     bool grounded;
 
+
+
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -62,7 +69,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
 
-        if (direction.magnitude > 0.1f)
+        if (direction.magnitude >= 0.1f)
         {
             // Returns angle between x-axis and direction vector appropriately
             // in radians.
