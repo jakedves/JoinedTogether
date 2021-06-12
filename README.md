@@ -12,5 +12,5 @@ A Unity game made for the GMTK 2021 Game Jam.
 
 
 ## Player Movement
-Fix backward movement
+- Fix backward movement
 
