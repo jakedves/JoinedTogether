@@ -17,13 +17,23 @@ public class InteractablePressurePlate : MonoBehaviour
 
     private void Update()
     {
-        thisInContactWith = Physics.CheckSphere(this.transform.position, radius, boxMask);
+        thisInContactWith = Physics.CheckSphere(this.transform.position, radius, playerMask);
 
 
         if (thisInContactWith)
         {
             openDoor();
         }
+
+        /*
+        if (plateColour == "Purple")
+        {
+            if (Physics.CheckSphere(this.transform.position, radius, playerMask))
+            {
+                openDoor();
+            }
+        }
+        */
 
 
         /*

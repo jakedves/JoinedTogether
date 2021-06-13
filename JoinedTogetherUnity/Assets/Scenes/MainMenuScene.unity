@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.3587269, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -157,7 +157,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 164.25, y: -118.5}
+  m_AnchoredPosition: {x: 164.25, y: -262}
   m_SizeDelta: {x: 1024, y: 576}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &133460971
@@ -1009,7 +1009,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -185.5}
+  m_AnchoredPosition: {x: 0, y: -341}
   m_SizeDelta: {x: 149.5977, y: 63.6801}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &709412421
@@ -2674,7 +2674,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 2.7733994, y: 137.5}
+  m_AnchoredPosition: {x: 2.7733994, y: 73}
   m_SizeDelta: {x: 515.5645, y: 107.1868}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1641613676
@@ -2697,11 +2697,18 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'You need to escape the dungeon before it''s too late!
+  m_text: 'You need to rejoin the worlds together!
 
-    You don''t
-    have much, however you can travel between two different worlds, that interact
-    and open up holes within each other. Use this to your advantage and escape.'
+    Your objective is to reach
+    the middle of both worlds, where you can then rejoin them together.
+
+    Doors
+    will be locked until you find the magic key (golden sphere) and walk into it.
+
+    You
+    must travel between the two worlds (by pressing f). One world''s keys unlock
+    the other world''s doors. You cannot advance in one world, until you have advanced
+    in the other.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
