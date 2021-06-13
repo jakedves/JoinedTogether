@@ -5,10 +5,10 @@ using UnityEngine;
 public class InteractablePressurePlate : MonoBehaviour
 {
     // Determines how close the player must be to interact with the object
-    public float radius = 3f;
-    bool thisInContactWith;
+    public float radius = 0f;
+    public static bool thisInContactWith;
 
-    public LayerMask playerMask;
+    public LayerMask playerMask, boxMask;
 
     public string plateColour;
 
@@ -17,8 +17,16 @@ public class InteractablePressurePlate : MonoBehaviour
 
     private void Update()
     {
-        thisInContactWith = Physics.CheckSphere(this.transform.position, radius, playerMask);
+        thisInContactWith = Physics.CheckSphere(this.transform.position, radius, boxMask);
 
+
+        if (thisInContactWith)
+        {
+            openDoor();
+        }
+
+
+        /*
         
 
         if (plateColour == "Red") {
@@ -47,6 +55,7 @@ public class InteractablePressurePlate : MonoBehaviour
         {
             openDoor();
         }
+        */
         
     }
 

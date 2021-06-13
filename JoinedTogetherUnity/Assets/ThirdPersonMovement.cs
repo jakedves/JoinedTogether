@@ -17,12 +17,14 @@ public class ThirdPersonMovement : MonoBehaviour
     public float smoothing = 0.1f;
     float smoothVelocity;
 
+    public float radius = 3f;
+
     // For gravity
     public float gravity = -9.81f;
     public float distanceToGround;
     public float jumpHeight = 3f;
     public Transform platform;
-    public LayerMask groundMask;
+    public LayerMask groundMask, playerMask, boxMask;
     Vector3 velocity;
     bool grounded;
     public Transform lookPoint;
@@ -32,6 +34,11 @@ public class ThirdPersonMovement : MonoBehaviour
     public Animator animator;
 
     public bool canInteract = false;
+    public bool thisInContactWith, moveable;
+
+
+
+    public Rigidbody m_Rigidbody;
 
 
     private void Start()
@@ -52,24 +59,51 @@ public class ThirdPersonMovement : MonoBehaviour
     {
 
 
+
+        //Ray ray = new Ray(lookPoint.position, lookPoint.forward);
+        //RaycastHit hit;
+
+        
+
+        thisInContactWith = Physics.CheckSphere(this.transform.position, radius, boxMask);
+
         if (Input.GetButtonDown("Interact"))
         {
-            Ray ray = new Ray(lookPoint.position, lookPoint.forward);
-            RaycastHit hit;
+            Debug.Log("pushing down");
+        }
 
+        if (thisInContactWith) {
+            if (Input.GetButtonDown("Interact")) {
+                moveable = !moveable;
+            }
+        } else
+        {
+            moveable = false;
+        }
+
+        if (moveable)
+        {
+            //transform.position += transform.forward * Time.deltaTime * 100.0f;
+            Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+            m_Rigidbody.AddForce(transform.forward * speed);
+        }
+        
+            
+
+            /*
             // If the ray hits
             if (Physics.Raycast(ray, out hit, 4))
             {
-                Interactable interactable = hit.collider.GetComponent<Interactable>();
+                InteractablePressurePlate interactable = hit.collider.GetComponent<InteractablePressurePlate>();
 
                 if (interactable != null)
                 {
                     Debug.Log("Successfully interacted with");
                 }
             }
-        }
+            */
+        
     }
-
     
     
 
