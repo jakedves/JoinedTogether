@@ -47,6 +47,8 @@ public class ThirdPersonMovement : MonoBehaviour
 
     void CheckInteraction()
     {
+
+
         if (Input.GetButtonDown("Interact"))
         {
             Ray ray = new Ray(lookPoint.position, lookPoint.forward);

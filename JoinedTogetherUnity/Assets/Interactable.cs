@@ -6,6 +6,26 @@ public class Interactable : MonoBehaviour
 {
     // Determines how close the player must be to interact with the object
     public float radius = 3f;
+    bool inContactWith;
+    public LayerMask playerMask;
+
+    public GameObject door;
+
+
+    private void Update()
+    {
+        inContactWith = Physics.CheckSphere(this.transform.position, radius, playerMask);
+        if (inContactWith)
+        {
+            openDoor();
+        }
+    }
+
+
+    void openDoor()
+    {
+        Destroy(door);
+    }
 
     void OnDrawGizmosSelected()
     {
