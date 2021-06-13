@@ -2,7 +2,7 @@
 A Unity game made for the GMTK 2021 Game Jam.
 The game can be downloaded from:
 
-** WINDOWS **
+**WINDOWS**
   - https://shiv02.itch.io/worldsaparttogether
 
 **MACOS**
