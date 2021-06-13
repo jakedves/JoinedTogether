@@ -24,7 +24,7 @@ public class Interactable : MonoBehaviour
 
     void openDoor()
     {
-        Destroy(door);
+        Destroy(door); //Yes
     }
 
     void OnDrawGizmosSelected()
