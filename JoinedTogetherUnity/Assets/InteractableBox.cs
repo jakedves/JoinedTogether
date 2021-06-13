@@ -7,7 +7,7 @@ public class InteractableBox : MonoBehaviour
     public Rigidbody m_Rigidbody;
     public bool thisInContactWith, moveable;
     public float radius = 3f;
-    public LayerMask playerMask
+    public LayerMask playerMask;
     // Start is called before the first frame update
     void Start()
     {
