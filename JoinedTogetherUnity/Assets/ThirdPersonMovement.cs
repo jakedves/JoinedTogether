@@ -22,20 +22,51 @@ public class ThirdPersonMovement : MonoBehaviour
     public LayerMask groundMask;
     Vector3 velocity;
     bool grounded;
+    public Transform lookPoint;
+
+    public float distanceOfRays = 40f;
 
     public Animator animator;
 
+    public bool canInteract = false;
+
+
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         this.animator = this.GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        CheckInteraction();
         CameraMove();
         ApplyGravity();
     }
+
+    void CheckInteraction()
+    {
+        if (Input.GetButtonDown("Interact"))
+        {
+            Ray ray = new Ray(lookPoint.position, lookPoint.forward);
+            RaycastHit hit;
+
+            // If the ray hits
+            if (Physics.Raycast(ray, out hit, 4))
+            {
+                Interactable interactable = hit.collider.GetComponent<Interactable>();
+
+                if (interactable != null)
+                {
+                    Debug.Log("Successfully interacted with");
+                }
+            }
+        }
+    }
+
+    
+    
 
 
     void ApplyGravity()
