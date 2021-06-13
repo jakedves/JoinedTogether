@@ -119,8 +119,17 @@ public class ThirdPersonMovement : MonoBehaviour
 
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
-            Vector3 moveDirection = Quaternion.Euler(0f, targetAngle, 0f)
+            Vector3 moveDirection;
+            if (vertical < 0)
+            {
+                moveDirection = Quaternion.Euler(0f, targetAngle, 0f)
+                * Vector3.back;
+            } 
+            else
+            {
+                moveDirection = Quaternion.Euler(0f, targetAngle, 0f)
                 * Vector3.forward;
+            }
 
             controller.Move(speed * Time.deltaTime * moveDirection.normalized);
 
