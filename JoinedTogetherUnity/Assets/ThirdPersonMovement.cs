@@ -5,6 +5,9 @@ using UnityEngine;
 public class ThirdPersonMovement : MonoBehaviour
 {
 
+    public static bool onRedPlate;
+    public static bool onPurplePlate;
+
     // Global player/camera
     public CharacterController controller;
     public Transform cam;
